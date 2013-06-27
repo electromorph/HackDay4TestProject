@@ -44,7 +44,7 @@
     </copy>
     <echo>Finished Deploying to local machine</echo>
     <echo>Attempting Deploy to EC2 server</echo>
-	<exec program="ncftpput -u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . *.*" />
+	<!-- <exec program="ncftpput -u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . *.*" /> -->
 	<echo>Finished Deploying to EC2 server</echo>
   </target>
 
