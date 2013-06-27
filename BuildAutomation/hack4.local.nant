@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="hack4.local.nant" default="default" basedir=".">
+  <description>Build of the Hackday 4 project in to local machine</description>
+
+  <!-- Details about what is to be built. -->
+  <property name="solution.name" value="HackDay4TestProject" />
+  <property name="solution.file" value="HackDay4TestProject.sln" />
+  <property name="solution.configuration" value="Release" /> 
+  <property name="solution.website.refspec" value="HackDay4TestProject" />
+
+
+  <!-- Destination Filepage and URL -->
+  <property name="install.name" value="hack4.local"/>
+  <property name="install.destination" value="C:\Users\mda" />
+  <property name="install.url" value="http://${install.name}" />
+
+
+  <!-- Git repo to inspect for changes -->
+  <property name="git.repo" value=" electromorph/HackDay4TestProject"/>
+
+
+  <!-- ##################################################################################################################################################### -->
+  <!--   Think very, Very, VERY hard before editing anything underneath this line. Is your build configuration really that different from any other project?   -->
+  <!-- ##################################################################################################################################################### -->
+
+
+
+  <!-- get the files over onto the deployment server -->
+  <target name="filecopy" depends="build">
+    <echo>Attempting Deploy to local machine</echo>
+	<echo>ToDir ${install.destination}</echo>
+	<echo>BaseDir ${solution.website.refspec}</echo>
+    <copy todir="${install.destination}" overwrite="true" verbose="false">
+      <fileset basedir="..\${solution.website.refspec}">
+        <include name="**/*" />
+        <exclude name="**/*.cs" />
+        <exclude name="HTML/**" />
+        <exclude name="**/Thumbs.db" />
+      </fileset>
+    </copy>
+    <echo>Finished Deploying.</echo>
+  </target>
+
+  <!-- builds the solution based on the sln build file from Visual Studio. -->
+  <target name="build" >
+    <echo>Building ${solution.file} with configuration ${solution.configuration}</echo>
+    <exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:Configuration=${solution.configuration} /v:q' workingdir=".." />
+  </target>
+
+
+</project>
