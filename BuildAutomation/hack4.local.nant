@@ -11,7 +11,7 @@
 
   <!-- Destination Filepage and URL -->
   <property name="install.name" value="hack4.local"/>
-  <property name="install.destination" value="C:\Users\mda" />
+  <property name="install.destination" value="C:\Users\mda\HackDay4TestProject" />
   <property name="install.url" value="http://${install.name}" />
 
 
