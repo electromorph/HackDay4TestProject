@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="hack4.local.nant" default="default" basedir=".">
+<project name="hack4.local.nant" default="filecopy" basedir=".">
   <description>Build of the Hackday 4 project in to local machine</description>
 
   <!-- Details about what is to be built. -->
@@ -30,7 +30,7 @@
   </target>
 
   <!-- get the files over onto the deployment server -->
-  <target name="filecopy" depends="build">
+  <target name="filecopy">
     <echo>Attempting Deploy to local machine</echo>
 	<echo>ToDir ${install.destination}</echo>
 	<echo>BaseDir ${solution.website.refspec}</echo>
