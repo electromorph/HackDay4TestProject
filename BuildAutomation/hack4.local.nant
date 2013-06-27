@@ -23,7 +23,11 @@
   <!--   Think very, Very, VERY hard before editing anything underneath this line. Is your build configuration really that different from any other project?   -->
   <!-- ##################################################################################################################################################### -->
 
-
+	<!-- Default build target.-->
+  <target name="default" depends="build">
+    <echo>hack4.local.nant done. Updating commit log.</echo>
+    <gitlogger lastest-hash="${build.vcs.number}"/>
+  </target>
 
   <!-- get the files over onto the deployment server -->
   <target name="filecopy" depends="build">
