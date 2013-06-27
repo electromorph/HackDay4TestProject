@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="hack4.local.nant" default="filecopy" basedir=".">
+<project name="hack4.local.nant" default="default" basedir=".">
   <description>Build of the Hackday 4 project in to local machine</description>
 
   <!-- Details about what is to be built. -->
@@ -49,10 +49,10 @@
   </target>
 
   <!-- builds the solution based on the sln build file from Visual Studio. -->
-  <target name="build" >
+  <target name="build" depends="filecopy">
     <echo>Building ${solution.file} with configuration ${solution.configuration}</echo>
-		<exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:configuration=${solution.configuration} /v:q' workingdir=".." /> 
-		
+		<!-- <exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:configuration=${solution.configuration} /v:q' workingdir=".." />  -->
+		<exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . *.*" />
 <!-- <exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe D:\Projects\HackDay4TestProject\HackDay4TestProject.sln /p:Configuration=Release" /> -->
   </target>
 
