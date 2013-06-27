@@ -48,8 +48,8 @@
   <!-- builds the solution based on the sln build file from Visual Studio. -->
   <target name="build" >
     <echo>Building ${solution.file} with configuration ${solution.configuration}</echo>
-    <!-- <exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:Configuration=${solution.configuration} /v:q' workingdir=".." /> -->
-    <exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe D:\Projects\HackDay4TestProject\HackDay4TestProject.sln /p:Configuration=Release" />
+		<exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:configuration=${solution.configuration} /v:q' workingdir=".." /> 
+<!-- <exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe D:\Projects\HackDay4TestProject\HackDay4TestProject.sln /p:Configuration=Release" /> -->
   </target>
 
 
