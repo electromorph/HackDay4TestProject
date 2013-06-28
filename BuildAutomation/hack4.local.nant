@@ -64,7 +64,7 @@
   <!-- Starts the EC2 instance -->
   <target name="StartEC2">
     <echo>Starting EC2 instance ${EC2InstanceId}</echo>
-		<exec program="..\Deploy\AwsEC2Sample.exe ${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -start" />
+		<exec program="C:\Windows\System32\cmd.exe" commandline="D:\Projects\HackDay4TestProject\Deploy\AwsEC2Sample.exe ${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -start" />
   </target>
 
 </project>
