@@ -3,7 +3,7 @@
   <description>Build of the Hackday 4 project in to local machine</description>
   
   <!-- AMAZON EC2 Settings -->
-  <property name="EC2InstanceId" value="i-6cdbcd0f" />
+  <property name="EC2InstanceId" value="i-dcf5bfb5" />
   <property name="EC2AccessKeyId" value="AKIAJLP2SAWMVSWMVUDQ" />
   <property name="EC2SecretKeyId" value="SBa5cepFy2qG97d9/gNLxHLKUeH5DsAYU/49tMHi" />
 
