@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="hack4StopEC2Server.nant" default="StopEC2" basedir=".">
+<project name="hack4StopEC2Server.nant" default="default" basedir=".">
   <description>Build of the Hackday 4 project in to local machine</description>
   
   <!-- AMAZON EC2 Settings -->
@@ -8,7 +8,7 @@
   <property name="EC2SecretKeyId" value="SBa5cepFy2qG97d9/gNLxHLKUeH5DsAYU/49tMHi" />
 
   <!-- Stops the EC2 instance -->
-  <target name="StopEC2" depends="filecopy">
+  <target name="default">
     <echo>Stopping EC2 instance ${EC2InstanceId}</echo>
 		<exec program="..\Deploy\AwsEC2Sample.exe ${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -stop" />
   </target>
