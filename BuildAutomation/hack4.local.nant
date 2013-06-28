@@ -15,7 +15,7 @@
   <property name="install.url" value="http://${install.name}" />
   
   <!-- AMAZON EC2 Settings -->
-  <property name="EC2InstanceId" value="i-6cdbcd0f" />
+  <property name="EC2InstanceId" value="i-dcf5bfb5" />
   <property name="EC2AccessKeyId" value="AKIAJLP2SAWMVSWMVUDQ" />
   <property name="EC2SecretKeyId" value="SBa5cepFy2qG97d9/gNLxHLKUeH5DsAYU/49tMHi" />
 
@@ -58,7 +58,7 @@
     <echo>Building ${solution.file} with configuration ${solution.configuration}</echo>
 		<!-- <exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:configuration=${solution.configuration} /v:q' workingdir=".." />  -->
 		<!--exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " /-->
-		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ..\HackDay4TestProject.sln /p:Configuration=Release" />
+		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" commandline="D:\Projects\HackDay4TestProject\HackDay4TestProject.sln /p:Configuration=Release" />
   </target>
 
   <!-- Starts the EC2 instance -->
