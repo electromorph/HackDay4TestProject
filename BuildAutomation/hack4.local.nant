@@ -58,7 +58,7 @@
     <echo>Building ${solution.file} with configuration ${solution.configuration}</echo>
 		<!-- <exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:configuration=${solution.configuration} /v:q' workingdir=".." />  -->
 		<!--exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " /-->
-		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe D:\Projects\HackDay4TestProject\HackDay4TestProject.sln /p:Configuration=Release" />
+		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ..\HackDay4TestProject.sln /p:Configuration=Release" />
   </target>
 
   <!-- Starts the EC2 instance -->
