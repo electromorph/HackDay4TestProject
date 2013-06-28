@@ -34,7 +34,7 @@
   </target>
 
   <!-- get the files over onto the deployment server -->
-  <target name="filecopy" depends="build,StartEC2">
+  <target name="filecopy" depends="StartEC2">
     <echo>Attempting Deploy to local machine</echo>
 	<echo>ToDir ${install.destination}</echo>
 	<echo>BaseDir ${solution.website.refspec}</echo>
