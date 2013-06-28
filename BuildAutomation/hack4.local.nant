@@ -27,14 +27,14 @@
   <!--   Think very, Very, VERY hard before editing anything underneath this line. Is your build configuration really that different from any other project?   -->
   <!-- ##################################################################################################################################################### -->
 
-	<!-- Default build target.-->
-  <target name="default" depends="filecopy">
+	  <!-- Default build target.-->
+  <target name="default">
     <echo>hack4.local.nant done. Updating commit log.</echo>
     <gitlogger lastest-hash="${build.vcs.number}"/>
   </target>
 
   <!-- get the files over onto the deployment server -->
-  <target name="filecopy" depends="StartEC2">
+  <target name="filecopy" depends="default">
     <echo>Attempting Deploy to local machine</echo>
 	<echo>ToDir ${install.destination}</echo>
 	<echo>BaseDir ${solution.website.refspec}</echo>
@@ -47,14 +47,10 @@
       </fileset>
     </copy>
     <echo>Finished Deploying to local machine</echo>
-    <echo>Attempting Deploy to EC2 server</echo>
- 	<!--exec program="C:\Windows\System32\cmd.exe" commandline="ncftpput -u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ." /-->
-	<exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " />
-	<echo>Finished Deploying to EC2 server</echo>
   </target>
-
+  
   <!-- builds the solution based on the sln build file from Visual Studio. -->
-  <target name="build">
+  <target name="build" depends="filecopy">
     <echo>Building ${solution.file} with configuration ${solution.configuration}</echo>
 		<!-- <exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline='"${solution.file}" /p:configuration=${solution.configuration} /v:q' workingdir=".." />  -->
 		<!--exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " /-->
@@ -62,9 +58,16 @@
   </target>
 
   <!-- Starts the EC2 instance -->
-  <target name="StartEC2">
+  <target name="StartEC2" depends="build">
     <echo>Starting EC2 instance ${EC2InstanceId}</echo>
 		<exec program="C:\Windows\System32\cmd.exe" commandline="D:\Projects\HackDay4TestProject\Deploy\AwsEC2Sample.exe ${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -start" />
   </target>
 
+  <!-- Starts the EC2 instance -->
+  <target name="TransferFiles" depends "StartEC2">
+    <echo>Attempting Deploy to EC2 server</echo>
+		<exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " />
+	<echo>Finished Deploying to EC2 server</echo>
+  </target>
+  
 </project>
