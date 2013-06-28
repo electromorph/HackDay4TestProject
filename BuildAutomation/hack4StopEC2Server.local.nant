@@ -10,6 +10,6 @@
   <!-- Stops the EC2 instance -->
   <target name="default">
     <echo>Stopping EC2 instance ${EC2InstanceId}</echo>
-		<exec program="..\Deploy\AwsEC2Sample.exe ${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -stop" />
+	<exec program="..\Deploy\AwsEC2Sample.exe" commandline="${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -stop" />
   </target>
 </project>
