@@ -64,7 +64,7 @@
   </target>
 
   <!-- Starts the EC2 instance -->
-  <target name="TransferFiles" depends "StartEC2">
+  <target name="TransferFiles" depends="StartEC2">
     <echo>Attempting Deploy to EC2 server</echo>
 		<exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " />
 	<echo>Finished Deploying to EC2 server</echo>
