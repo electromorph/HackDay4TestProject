@@ -64,7 +64,7 @@
 		<exec program="..\Deploy\AwsEC2Sample.exe" commandline="${EC2InstanceId} ${EC2AccessKeyId} ${EC2SecretKeyId} -start" />
   </target>
 
-  <!-- Starts the EC2 instance -->
+  <!-- Transfers files to remote server -->
   <target name="TransferFiles">
     <echo>Attempting Deploy to EC2 server</echo>
 		<exec program="C:\Windows\ncftpput" commandline="-u Administrator -p LJrp4Lm%2L -R 54.225.64.206 . ${install.destination} " />
